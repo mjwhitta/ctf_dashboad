@@ -1,0 +1,7 @@
+# Ignore everything
+*
+# Except this file
+!.gitignore
+# And the samples
+!sample.erb
+!sample.json

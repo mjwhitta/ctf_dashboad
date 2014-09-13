@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <title>Create Account</title>
+  <body bgcolor="#323232">
+    <h1 align="center"><font color="#DDDDDD"><%= title %></font></h1>
+    <form action="/create" method="POST" name="create">
+      <table
+        align="center"
+        bgcolor="#505050"
+        cellspacing="15px"
+        style="border-radius:10px;margin-top:100px">
+        <tr>
+          <td align="right">
+            <font color="#DDDDDD">Username:</font>
+          </td>
+          <td>
+            <input
+              name="username"
+              style="border-radius:5px"
+              type="text"/>
+          </td>
+        </tr>
+        <tr>
+          <td align="right">
+            <font color="#DDDDDD">Password:</font>
+          </td>
+          <td>
+            <input
+              name="password"
+              style="border-radius:5px"
+              type="password"/>
+          </td>
+        </tr>
+        <tr>
+          <td align="left">
+            <a href="/login">
+              <font color="#DDDDDD">Cancel</font>
+            </a>
+          </td>
+          <td align="right">
+            <input
+              name="create"
+              value="Create"
+              style="border-radius:5px"
+              type="submit"/>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

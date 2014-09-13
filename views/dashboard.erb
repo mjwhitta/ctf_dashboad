@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      summary {
+        outline: none;
+      }
+    </style>
+  </head>
+  <title>Dashboard</title>
+  <body bgcolor="#323232">
+    <%= erb(:navbar) %>
+    <table
+      align="center"
+      bgcolor="#505050"
+      cellspacing="10px"
+      style="border-radius:10px;margin-top:50px"
+      width="90%">
+      <!-- Start loop -->
+      <%
+      sorted = challenges.sort do |a, b|
+          a.score <=> b.score
+      end
+      sorted.each do |challenge|
+        complete = completed.include?(challenge.name)
+      %>
+        <tr>
+          <td align="left">
+            <h2>
+              <font color="#DDDDDD"><%= challenge.name %></font>
+            </h2>
+          </td>
+          <td align="right">
+            <h2>
+              <% if (complete) %>
+                <font color="#00DD00"><%= challenge.score %></font>
+              <% else %>
+                <font color="#DDDDDD"><%= challenge.score %></font>
+              <% end %>
+            </h2>
+          </td>
+        </tr>
+        <tr>
+          <td align="left" colspan="2">
+            <font color="#DDDDDD">
+              <% if (!complete) %>
+                <details open>
+              <% else %>
+                <details>
+              <% end %>
+                <summary></summary>
+                <br>
+                <%= erb challenge.source.to_sym %>
+                <% if (!complete) %>
+                  <br><br>
+                  <form action="/submit" method="POST" name="submit">
+                    <font color="#DDDDDDD">Answer:</font>
+                    <input
+                      name="challenge"
+                      style="border-radius:5px"
+                      type="hidden"
+                      value="<%= challenge.name %>"/>
+                    <input
+                      name="answer"
+                      style="border-radius:5px"
+                      type="text"/>
+                    <input
+                      name="submit"
+                      value="Submit"
+                      style="border-radius:5px"
+                      type="submit"/>
+                  </form>
+                <% end %>
+              </details>
+            </font>
+          </td>
+        </tr>
+        <tr><td colspan="2"><hr><td></tr>
+      <% end %>
+      <!-- End loop -->
+    </table>
+  </body>
+</html>

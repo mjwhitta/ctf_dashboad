@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <title>Completed</title>
+  <body bgcolor="#323232">
+    <%= erb(:navbar) %>
+    <table
+      align="center"
+      bgcolor="#505050"
+      cellspacing="10px"
+      style="border-radius:10px;margin-top:50px"
+      width="90%">
+      <tr>
+        <td align="center">
+          <font color="#DDDDDD">Username</font>
+        </td>
+        <td align="center">
+          <font color="#DDDDDD">Challenge</font>
+        </td>
+      </tr>
+      <tr><td colspan="2"><hr><td></tr>
+      <!-- Start loop -->
+      <% completed.each do |challenge| %>
+        <tr>
+          <td align="center">
+            <font color="#DDDDDD"><%= challenge.username %></font>
+          </td>
+          <td align="center">
+            <font color="#DDDDDD"><%= challenge.name %></font>
+          </td>
+        </tr>
+      <% end %>
+      <!-- End loop -->
+    </table>
+  </body>
+</html>

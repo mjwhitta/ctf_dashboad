@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <title>Scoreboard</title>
+  <body bgcolor="#323232">
+    <%= erb(:navbar) %>
+    <table
+      align="center"
+      bgcolor="#505050"
+      cellspacing="10px"
+      style="border-radius:10px;margin-top:50px"
+      width="75%">
+      <tr>
+        <td align="center">
+          <font color="#DDDDDD">Username</font>
+        </td>
+        <td align="center">
+          <font color="#DDDDDD">Score</font>
+        </td>
+      </tr>
+      <tr><td colspan="2"><hr><td></tr>
+      <!-- Start loop -->
+      <%
+      users.sort_by do |x|
+        x.score
+      end.reverse.each do |user|
+      %>
+      <tr>
+        <% [user.username, user.score].each do |text| %>
+        <td align="center">
+          <font color="#DDDDDD"><%= text %></font>
+        </td>
+        <% end %>
+      </tr>
+      <% end %>
+      <!-- End loop -->
+    </table>
+  </body>
+</html>

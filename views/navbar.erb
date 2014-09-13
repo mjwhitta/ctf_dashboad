@@ -1,0 +1,27 @@
+<h1 align="center">
+  <font color="#DDDDDD"><%= session[:title] %></font>
+</h1>
+<table
+  align="center"
+  bgcolor="#505050"
+  cellspacing="5px"
+  style="border-radius:5px"
+  width="100%">
+  <tr>
+    <td align="left">
+      <a href="/dashboard"><font color="#DDDDDD">Dashboard</font></a>
+      <a href="/scoreboard">
+        <font color="#DDDDDD">Scoreboard</font>
+      </a>
+      <% if (session[:user] == "admin") %>
+        <a href="/completed"><font color="#DDDDDD">Completed</font></a>
+      <% end %>
+    </td>
+    <td align="right">
+      <% if (session[:user] == "admin") %>
+        <a href="/admin"><font color="#DDDDDD">Admin</font></a>
+      <% end %>
+      <a href="/logout"><font color="#DDDDDD">Logout</font></a>
+    </td>
+  </tr>
+</table>
