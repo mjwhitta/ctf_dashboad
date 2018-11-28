@@ -27,6 +27,20 @@ file contiains the name of the challenge, the points it is worth, the
 answer, and the name of the erb file. The erb file should contain the
 partial html source that the users will see on the dashboard.
 
+# Starting dashboard
+
+#### First time
+
+```
+$ rake db:migrate db:setup run
+```
+
+#### Other times
+
+```
+$ rake run
+```
+
 # TODO
 
 - Add an Admin interface (it's currently blank)
