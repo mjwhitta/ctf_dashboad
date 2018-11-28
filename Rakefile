@@ -12,4 +12,5 @@ end
 
 task(:run) do
     system("rerun rackup")
+    # system("ruby ./server.rb -o 0.0.0.0 -p 8080")
 end

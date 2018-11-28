@@ -19,7 +19,11 @@
       <!-- Start loop -->
       <%
       sorted = challenges.sort do |a, b|
+        if (a.score == b.score)
+          a.name <=> b.name
+        else
           a.score <=> b.score
+        end
       end
       sorted.each do |challenge|
         complete = completed.include?(challenge.name)
@@ -48,7 +52,6 @@
               <% else %>
                 <details>
               <% end %>
-                <summary></summary>
                 <br>
                 <%= erb challenge.source.to_sym %>
                 <% if (!complete) %>
